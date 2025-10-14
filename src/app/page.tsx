@@ -1,6 +1,6 @@
 "use client"
 
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Github, Twitter } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -125,7 +125,7 @@ export default function LandingPage() {
             </form>
           ) : (
             <div className="flex items-center justify-center px-4 py-3 bg-white text-black font-semibold w-full">
-              You're now subscribed to be notified when we launch!
+              You&apos;re now subscribed to be notified when we launch!
             </div>
           )}
         </div>
