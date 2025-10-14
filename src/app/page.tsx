@@ -17,8 +17,8 @@ export default function LandingPage() {
     setIsAnimating(true)
     
     try {
-      // Send email using a simple form service
-      const response = await fetch('https://formspree.io/f/xpwnqkqr', {
+      // Send email using FormSubmit (delivers directly to target mailbox)
+      const response = await fetch('https://formsubmit.co/ajax/charles@leveldesignagency.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function LandingPage() {
       // Fallback to mailto if form submission fails
       const subject = encodeURIComponent('APX MEP - Website Coming Soon Subscription')
       const body = encodeURIComponent(`Hello APX MEP Team,\n\nPlease add the following email to your mailing list for updates about your website launch:\n\nEmail: ${email}\n\nThank you!\n\nBest regards,\n${email}`)
-      const mailtoLink = `mailto:info@apx-mep.co.uk?subject=${subject}&body=${body}`
+      const mailtoLink = `mailto:charles@leveldesignagency.com?subject=${subject}&body=${body}`
       window.location.href = mailtoLink
       
       // Still show success message
