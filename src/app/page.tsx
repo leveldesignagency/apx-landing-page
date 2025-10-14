@@ -1,6 +1,6 @@
 "use client"
 
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -12,42 +12,28 @@ export default function LandingPage() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email')
-    
-    // Start animation
+
     setIsAnimating(true)
-    
     try {
-      // Send email using FormSubmit (delivers directly to target mailbox)
-      const response = await fetch('https://formsubmit.co/ajax/charles@leveldesignagency.com', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          email: email,
+          email,
           message: `New subscription request from: ${email}`,
           _subject: 'APX MEP - Website Coming Soon Subscription'
         })
       })
-      
-      if (response.ok) {
-        // Show success message after animation
-        setTimeout(() => {
-          setIsSubscribed(true)
-          setIsAnimating(false)
-        }, 800)
-      } else {
-        throw new Error('Failed to send email')
-      }
-    } catch (error) {
-      console.error('Error sending email:', error)
-      // Fallback to mailto if form submission fails
+      if (!response.ok) throw new Error('Failed')
+
+      setTimeout(() => {
+        setIsSubscribed(true)
+        setIsAnimating(false)
+      }, 800)
+    } catch (err) {
       const subject = encodeURIComponent('APX MEP - Website Coming Soon Subscription')
       const body = encodeURIComponent(`Hello APX MEP Team,\n\nPlease add the following email to your mailing list for updates about your website launch:\n\nEmail: ${email}\n\nThank you!\n\nBest regards,\n${email}`)
-      const mailtoLink = `mailto:charles@leveldesignagency.com?subject=${subject}&body=${body}`
-      window.location.href = mailtoLink
-      
-      // Still show success message
+      window.location.href = `mailto:charles@leveldesignagency.com?subject=${subject}&body=${body}`
       setTimeout(() => {
         setIsSubscribed(true)
         setIsAnimating(false)
@@ -110,21 +96,18 @@ export default function LandingPage() {
                 name="email"
                 placeholder="ENTER YOUR EMAIL HERE"
                 required
-                className={`flex-1 px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400 focus:outline-none focus:border-gray-300 transition-all duration-500 ease-in-out ${
-                  isAnimating ? 'pr-32' : 'pr-4'
-                }`}
+                className={`flex-1 px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400 focus:outline-none focus:border-gray-300 transition-all duration-500 ease-in-out ${isAnimating ? 'pr-32' : 'pr-4'}`}
               />
               <button
                 type="submit"
-                className={`px-6 py-3 bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-500 ease-in-out ${
-                  isAnimating ? 'absolute opacity-0 scale-95' : 'relative opacity-100 scale-100'
-                }`}
+                className={`px-6 py-3 bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-500 ease-in-out ${isAnimating ? 'absolute opacity-0 scale-95' : 'relative opacity-100 scale-100'}`}
               >
                 SUBMIT
               </button>
             </form>
           ) : (
-            <div className="flex items-center justify-center px-4 py-3 bg-white text-black font-semibold w-full">
+            <div className="flex items-center justify-center gap-2 px-4 py-3 bg-white text-black font-semibold w-full">
+              <CheckCircle className="h-5 w-5 text-green-600" />
               You&apos;re now subscribed to be notified when we launch!
             </div>
           )}
