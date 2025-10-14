@@ -106,8 +106,8 @@ export default function LandingPage() {
               </button>
             </form>
           ) : (
-            <div className="flex items-center justify-center gap-2 px-4 py-3 bg-white text-black font-semibold w-full">
-              <CheckCircle className="h-5 w-5 text-green-600" />
+            <div className="flex items-center justify-center gap-2 px-4 py-3 bg-white text-black font-medium text-sm w-full">
+              <CheckCircle className="h-4 w-4 text-green-600" />
               You&apos;re now subscribed to be notified when we launch!
             </div>
           )}
