@@ -152,11 +152,11 @@ export default function LandingPage() {
 
           {/* Address */}
           <a 
-            href="https://maps.google.com/?q=123+Business+Park+Industrial+Estate+London+SW1A+1AA"
+            href="https://maps.google.com/?q=365-369+Bexley+Road+Northumberland+Heath+Erith,+Kent,+DA8+3EZ"
             target="_blank"
             rel="noopener noreferrer"
             className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-            title="123 Business Park, London, SW1A 1AA"
+            title="365-369 Bexley Road Northumberland Heath Erith, Kent, DA8 3EZ"
           >
             <MapPin className="h-8 w-8 text-white group-hover:text-gray-300 transition-colors" />
           </a>
@@ -201,7 +201,7 @@ export default function LandingPage() {
       <footer className="py-4 border-t border-white flex-shrink-0">
         <div className="container mx-auto px-6 text-center">
           <p className="text-gray-400 text-xs">
-            © 2024 APX MEP. All rights reserved. | Professional MEP Services UK
+            © 2025 APX MEP. All rights reserved. | Professional MEP Services UK
           </p>
         </div>
       </footer>
