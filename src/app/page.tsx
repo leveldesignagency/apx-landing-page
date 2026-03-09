@@ -12,7 +12,7 @@ export default function LandingPage() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email')
-
+    
     setIsAnimating(true)
     try {
       const response = await fetch('/api/subscribe', {
@@ -25,11 +25,11 @@ export default function LandingPage() {
         })
       })
       if (!response.ok) throw new Error('Failed')
-
-      setTimeout(() => {
-        setIsSubscribed(true)
-        setIsAnimating(false)
-      }, 800)
+      
+        setTimeout(() => {
+          setIsSubscribed(true)
+          setIsAnimating(false)
+        }, 800)
     } catch (err) {
       const subject = encodeURIComponent('APX MEP - Website Coming Soon Subscription')
       const body = encodeURIComponent(`Hello APX MEP Team,\n\nPlease add the following email to your mailing list for updates about your website launch:\n\nEmail: ${email}\n\nThank you!\n\nBest regards,\n${email}`)
@@ -54,9 +54,9 @@ export default function LandingPage() {
             <Image
               src="/apx-logo.svg"
               alt="APX MEP Logo"
-              width={150}
-              height={150}
-              className="w-36 h-36"
+              width={280}
+              height={280}
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64"
             />
           </div>
           
