@@ -33,7 +33,7 @@ export default function LandingPage() {
     } catch (err) {
       const subject = encodeURIComponent('APX MEP - Website Coming Soon Subscription')
       const body = encodeURIComponent(`Hello APX MEP Team,\n\nPlease add the following email to your mailing list for updates about your website launch:\n\nEmail: ${email}\n\nThank you!\n\nBest regards,\n${email}`)
-      window.location.href = `mailto:charles@leveldesignagency.com?subject=${subject}&body=${body}`
+      window.location.href = `mailto:enquiries@apx-mep.co.uk?subject=${subject}&body=${body}`
       setTimeout(() => {
         setIsSubscribed(true)
         setIsAnimating(false)
@@ -126,9 +126,9 @@ export default function LandingPage() {
 
           {/* Email */}
           <a 
-            href="mailto:info@apxmep.co.uk"
+            href="mailto:enquiries@apx-mep.co.uk"
             className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-            title="info@apxmep.co.uk"
+            title="enquiries@apx-mep.co.uk"
           >
             <Mail className="h-8 w-8 text-white group-hover:text-gray-300 transition-colors" />
           </a>

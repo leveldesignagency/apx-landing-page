@@ -9,7 +9,7 @@ export async function POST(req: Request) {
       });
     }
 
-    const response = await fetch('https://formsubmit.co/ajax/charles@leveldesignagency.com', {
+    const response = await fetch('https://formsubmit.co/ajax/enquiries@apx-mep.co.uk', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
