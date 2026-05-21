@@ -4,6 +4,9 @@ import { Phone, Mail, MapPin, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
+/** Public contact email (mail icon) — must match APX MEP site */
+const CONTACT_EMAIL = "enquiries@apx-mep.co.uk"
+
 export default function LandingPage() {
   const [isSubscribed, setIsSubscribed] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
@@ -126,9 +129,9 @@ export default function LandingPage() {
 
           {/* Email */}
           <a 
-            href="mailto:enquiries@apx-mep.co.uk"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="group hover:scale-105 transition-transform duration-300 cursor-pointer"
-            title="enquiries@apx-mep.co.uk"
+            title={CONTACT_EMAIL}
           >
             <Mail className="h-8 w-8 text-white group-hover:text-gray-300 transition-colors" />
           </a>
